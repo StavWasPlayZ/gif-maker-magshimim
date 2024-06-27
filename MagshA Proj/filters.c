@@ -52,7 +52,7 @@ void _handle_filter(Configs* configs, FilterApplier applier)
 		FrameNode* frame = frameNodeByName(frameName, configs->framesList);
 		if (frame == NULL)
 		{
-			fprintf("No frame '%s' found", frameName);
+			fprintf(stderr, "No frame '%s' found", frameName);
 			return;
 		}
 
