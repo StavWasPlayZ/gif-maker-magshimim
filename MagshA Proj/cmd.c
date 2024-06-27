@@ -54,6 +54,8 @@ Configs* _handleLoadProj(void)
 		return;
 	}
 
+	loadFilters(configs);
+
 	printf("Project loaded successfully\n");
 	return configs;
 }
@@ -195,7 +197,7 @@ void _handleNewFrame(Configs* configs)
 	input(buffer, STR_LEN);
 	const char* name = statToDyn(buffer);
 
-	appendFrame(configs->framesList, createFrame(name, duration, path, img));
+	appendFrame(configs->framesList, createFrame(name, duration, path, img, 0));
 }
 void _handleRemoveFrame(Configs* configs)
 {

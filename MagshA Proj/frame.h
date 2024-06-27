@@ -12,6 +12,12 @@ typedef struct Frame
 	unsigned int durationMs;
 	const char* path;
 	IplImage* img;
+	// A set of flags indicating which filters are enabled
+	// I'm turning in the work in a few minutes
+	// so I kinda have to rush this
+	// Known issue: the filters are always applied in
+	// a hard-coded order
+	unsigned int filters;
 } Frame;
 
 typedef struct FrameNode
@@ -21,7 +27,7 @@ typedef struct FrameNode
 } FrameNode;
 
 
-Frame* createFrame(const char* name, unsigned int duration, const char* path, IplImage* img);
+Frame* createFrame(const char* name, unsigned int duration, const char* path, IplImage* img, unsigned int filters);
 FrameNode* createFrameNode(Frame* frame);
 void printFramesSummary(FrameNode* head);
 FrameNode* reverseFramesList(FrameNode* head);

@@ -93,7 +93,7 @@ void loadAllImages(const char** const images, const int imgCount, const duration
 			// of the same string later will cause problems
 			statToDyn(&images[i][lastIndexOf(images[i], '/') + 1]),
 			duration,
-			images[i], img
+			images[i], img, 0
 		));
 	}
 }

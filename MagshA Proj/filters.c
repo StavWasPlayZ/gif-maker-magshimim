@@ -76,7 +76,7 @@ void applyBinaryFilter(Configs* configs, Frame* frame)
 	cvReleaseImage(&im_gray);
 
 	frame->img = im_bw;
-	//TODO update config flags
+	frame->filters |= BINARY_FLTR;
 }
 
 void applyBlurFilter(Configs* configs, Frame* frame)
@@ -88,5 +88,31 @@ void applyBlurFilter(Configs* configs, Frame* frame)
 	cvReleaseImage(&org);
 
 	frame->img = blurred;
-	//TODO update config flags
+	frame->filters |= BLUR_FLTR;
+}
+
+
+/*
+Loads all filters stored inside each Frame::filters
+of the stored frames.
+*/
+void loadFilters(Configs* configs)
+{
+	FrameNode* node = configs->framesList->next;
+	while (node->frame != NULL)
+	{
+		Frame* frame = node->frame;
+		int filters = frame->filters;
+
+		if (filters & BINARY_FLTR)
+		{
+			applyBinaryFilter(configs, frame);
+		}
+		if (filters & BLUR_FLTR)
+		{
+			applyBlurFilter(configs, frame);
+		}
+
+		node = node->next;
+	}
 }

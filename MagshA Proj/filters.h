@@ -12,9 +12,17 @@
 
 typedef void (*FilterApplier)(Configs*, Frame*);
 
+typedef enum FilterType
+{
+	BINARY_FLTR = 1,
+	BLUR_FLTR = 2
+} FilterType;
+
 bool promptFiltersMenu(Configs* configs);
 
-void applyBinaryFilter(Configs* configs);
-void applyBlurFilter(Configs* configs);
+void applyBinaryFilter(Configs* configs, Frame* frame);
+void applyBlurFilter(Configs* configs, Frame* frame);
+
+void loadFilters(Configs* configs);
 
 #endif

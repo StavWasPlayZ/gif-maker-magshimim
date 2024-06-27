@@ -62,9 +62,11 @@ Configs* loadConfigs(const char* const path)
 			// 10 characters for 2^31
 			char duration[11] = { 0 };
 			char name[PATH_MAX] = { 0 };
+			char filters[11] = { 0 };
 
 			const int pathEndI = strchr(line, ',') - line;
 			const int durationEndI = strchr(line + pathEndI + 1, ',') - line;
+			const int nameEndI = strchr(line + durationEndI + 1, ',') - line;
 
 			if (pathEndI <= 0 || durationEndI <= 0)
 			{
@@ -73,7 +75,8 @@ Configs* loadConfigs(const char* const path)
 
 			strncpy_s(imgPath, STR_LEN, line, pathEndI);
 			strncpy_s(duration, 11, line + pathEndI + 1, durationEndI - pathEndI - 1);
-			strncpy_s(name, STR_LEN, line + durationEndI + 1, STR_LEN);
+			strncpy_s(name, STR_LEN, line + durationEndI + 1, nameEndI - durationEndI - 1);
+			strncpy_s(filters, 11, line + nameEndI + 1, STR_LEN);
 
 			const IplImage* img = cvLoadImage(imgPath, 1);
 			if (img == NULL)
@@ -84,7 +87,7 @@ Configs* loadConfigs(const char* const path)
 
 			// I cannot check for atoi failing. It just returns 0, which is valid.
 			framesTail = insertFrameAtCurrent(framesTail, createFrame(
-				statToDyn(name), atoi(duration), statToDyn(imgPath), img
+				statToDyn(name), atoi(duration), statToDyn(imgPath), img, atoi(filters)
 			));
 		}
 	}
@@ -114,7 +117,7 @@ bool saveConfigs(const Configs* const configs, const char* const path)
 	while (curr->frame != NULL)
 	{
 		Frame* frame = curr->frame;
-		fprintf(file, "\n%s,%d,%s", frame->path, frame->durationMs, frame->name);
+		fprintf(file, "\n%s,%d,%s,%d", frame->path, frame->durationMs, frame->name, frame->filters);
 		curr = curr->next;
 	}
 

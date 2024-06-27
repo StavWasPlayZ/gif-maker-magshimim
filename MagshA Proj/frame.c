@@ -6,13 +6,19 @@
 /*
 Constructs a new frame struct instance.
 */
-Frame* createFrame(const char* name, unsigned int duration, const char* path, IplImage* img)
-{
+Frame* createFrame(
+	const char* name,
+	unsigned int duration,
+	const char* path,
+	IplImage* img,
+	unsigned int filters
+) {
 	Frame* frame = (Frame*)malloc(sizeof(Frame));
 	frame->name = name;
 	frame->durationMs = duration;
 	frame->path = path;
 	frame->img = img;
+	frame->filters = filters;
 	return frame;
 }
 
