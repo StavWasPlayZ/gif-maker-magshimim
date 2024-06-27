@@ -10,6 +10,11 @@
 
 #include "config.h"
 
+typedef void (*FilterApplier)(Configs*, Frame*);
+
 bool promptFiltersMenu(Configs* configs);
+
+void applyBinaryFilter(Configs* configs);
+void applyBlurFilter(Configs* configs);
 
 #endif
