@@ -31,7 +31,7 @@ without having to manually do all the annoying work again.
 The available optional bonuses
 - Applying filters
   - Black & White
-- The preview ✨loops✨ <small>_(this is for some reason it not taken for granted)_</small>
+- The preview ✨loops✨ <small>_(this is for some reason not taken for granted)_</small>
 
 ### Even More Additional Features
 - Custom Working Directories
