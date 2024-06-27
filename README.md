@@ -1,10 +1,13 @@
 # Magshimim Gif Maker
+
 The you-know-what gif maker project thingy you have to do in Magshimim sem B.  
 Use it per your own convinience, dear comrade 🫡  
 
 Do note my own implementation and take on this project and source code - that may differ from the usual, conventional one.
 
 ## About the Software
+<img src=https://github.com/StavWasPlayZ/gif-maker-magshimim/assets/89315181/14f0fe35-2270-455c-9cd5-5882fe933e60 width="500" alt="Example usage of the swoftware">
+
 A GIF maker that cannot actually produce GIFs.  
 > ...Yeah it just displays them  
 > I did not do that bonus-
