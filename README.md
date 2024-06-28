@@ -37,6 +37,8 @@ The available optional bonuses
 ### Even More Additional Features
 - Custom Working Directories
   - This directory will be the starting point of all relative paths (`./`) specified in the program.
+- Mass-Import
+  - The option to import all images from the Working Directory when creating a new project
 - Export individual frames
     > Mostly done for the 15th horse frame sh^t.
     > Honestly if anyone ever figures that out please lmk becuase im invested
