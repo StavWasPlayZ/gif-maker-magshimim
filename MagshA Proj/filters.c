@@ -37,7 +37,7 @@ void _handle_filter(Configs* configs, FilterApplier applier)
 	printf("Enter frame to apply filter to (leave blank for all): ");
 	input(frameName, STR_LEN);
 
-	if (strlen(frameName) == 0)
+	if (frameName[0] == 0)
 	{
 		// Nothing chosen; apply for all
 		FrameNode* node = configs->framesList->next;
